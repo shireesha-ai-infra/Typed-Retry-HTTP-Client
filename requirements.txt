@@ -1,0 +1,3 @@
+ipykernel
+httpx
+pydantic
