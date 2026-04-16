@@ -23,8 +23,11 @@ def validate_response(response :httpx.Response) -> dict:
         raise Exception("Invalid JSON Structure, expected object")
 
     # 4. Basic structure validation
-    if "id" not in data or "name" not in data:
-        raise Exception("Invalid response Schema")
+    if not isinstance(data.get("id"), int):
+        raise Exception("Invalid id")
+    
+    if not isinstance(data.get("name"), str):
+        raise Exception("Invalid name")
     
     return data
 
